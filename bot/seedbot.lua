@@ -230,26 +230,20 @@ function create_config( )
     sudo_users = {52417364,185963103,114507663,95205943},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v2 - Open Source
-An advance Administration bot based on yagop/telegram-bot 
-
-https://github.com/SEEDTEAM/TeleSeed
-
-Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@Rondoozle [Developer]
-@seyedan25 [Manager]
-
-Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
-
-Our channels
-@teleseedch [English]
-@iranseed [persian]
+    about_text = [[
+    F🔱I🔱G🔱H🔱T🔱E🔱R🔱B🔱O🔱T
+    BEST anti spam
+    
+    sudo:
+    @M_O_T_A_F_E_G_H_I_N
+    @ELCAPO3 
+    @mrtelegram1 
+    abolfazl
+  
+    channel:
+    @FIGHTERBOT_CH
+    
+    
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -328,109 +322,121 @@ This command will send text to [group_id]
     help_text = [[
 Commands list :
 
-!kick [username|id]
-You can also do it by reply
+📝 ليست دستورات مدیریت گروه :
 
-!ban [ username|id]
-You can also do it by reply
+🚫 حذف کردن کاربر
+!kick 
+✅ریپلی
+ 
 
-!unban [id]
-You can also do it by reply
+🚫 کردن کاربر ( حذف برای همیشه )
+!ban
+ ✅ریپلی
 
-!who
-Members list
+🚫 حذف بن کاربر ( آن بن )
+!unban
+✅ریپلی
 
+🚫 حذف خودتان از گروه
+!kickmed
+
+🚫 حذف کاربران غیر فعال
+!kickinactive
+
+👥 دريافت ليست مديران گروه
 !modlist
-Moderators list
 
-!promote [username]
-Promote someone
+👥 افزودن یک مدیر به گروه
+!promote [یوزنیم]
 
-!demote [username]
-Demote someone
+👥 حذف کردن یک مدير
+!demote [یوزنیم]
 
-!kickme
-Will kick user
-
+📃 توضيحات گروه
 !about
-Group description
 
-!setphoto
-Set and locks group photo
-
-!setname [name]
-Set group name
-
+📜 قوانين گروه
 !rules
-Group rules
 
+🌅 انتخاب و قفل عکس گروه
+!setphoto
+
+🔖 انتخاب نام گروه
+!setname [نام مورد نظر]
+
+📜 انتخاب قوانين گروه
+!set rules [متن قوانین]
+
+📃 انتخاب توضيحات گروه
+!set about [متن مورد نظر]
+
+🔒 قفل اعضا ، نام گروه ، ربات و ...
+!lock [member|name|bots|]
+
+🔓 باز کردن قفل اعضا ، نام گروه و ...
+!unlock [member|name|bots|]
+
+📥 دريافت یوزر آی دی گروه يا کاربر
 !id
-return group id or user id
 
-!help
+📥 دریافت اطلاعات کاربری و مقام
+!info
 
-!lock [member|name|bots|leave]	
-Locks [member|name|bots|leaveing] 
-
-!unlock [member|name|bots|leave]
-Unlocks [member|name|bots|leaving]
-
-!set rules <text>
-Set <text> as rules
-
-!set about <text>
-Set <text> as about
-
+⚙ دریافت تنظیمات گروه 
 !settings
-Returns group settings
 
+📌 ساخت / تغيير لينک گروه
 !newlink
-create/revoke your group link
 
+📌 دريافت لينک گروه
 !link
-returns group link
 
-!owner
-returns group owner id
+📌 دريافت لينک گروه در پی وی
+!linkpv
 
-!setowner [id]
-Will set id as owner
+🛃 انتخاب مالک گروه
+!setowner [یوزر آی دی]
 
-!setflood [value]
-Set [value] as flood sensitivity
+🔢 تغيير حساسيت ضد اسپم
+!setflood [5-20]
 
+✅ دريافت ليست اعضا گروه
+!who
+
+✅ دريافت آمار در قالب متن
 !stats
-Simple message statistics
 
+〽️ سيو کردن يک متن
 !save [value] <text>
-Save <text> as [value]
 
+〽️ دريافت متن سيو شده
 !get [value]
-Returns text of [value]
 
+❌ حذف قوانين ، مديران ، اعضا و ...
 !clean [modlist|rules|about]
-Will clear [modlist|rules|about] and set it to nil
 
-!res [username]
-returns user id
-"!res @username"
+♻️ دريافت يوزر آی دی یک کاربر
+!res [یوزنیم]
 
+🚸 دريافت گزارشات گروه
 !log
-will return group logs
 
+🚸 دريافت ليست کاربران بن شده
 !banlist
-will return group ban list
 
-**U can use both "/" and "!" 
-
-
-*Only owner and mods can add bots in group
-
-
-*Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
-
-*Only owner can use res,setowner,promote,demote and log commands
-
+🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹
+:امکانات
+:ماشین حساب
+!clac 2+2
+:سرچ گوگل
+!google
+ساخت qr
+!qr متن
+تکرار
+!echo متن
+🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹
+!insudo
+ در صورت وجود مشکل در گروه دستور بالا رااجرا کرده تا ادمین بات در گروه ادد شود
 ]]
   }
   serialize_to_file(config, './data/config.lua')
