@@ -93,7 +93,7 @@ local function enable_plugin( plugin_name )
     -- Reload the plugins
     return reload_plugins( )
   else
-    return 'Plugin '..plugin_name..' does not exists'
+    return 'پلاگین '..plugin_name..' وجود ندارد'
   end
 end
 
@@ -105,7 +105,7 @@ local function disable_plugin( name, chat )
   local k = plugin_enabled(name)
   -- Check if plugin is enabled
   if not k then
-    return 'Plugin '..name..' not enabled'
+    return 'پلاگین '..name..'در حال اجراست'
   end
   -- Disable and reload
   table.remove(_config.enabled_plugins, k)
@@ -129,7 +129,7 @@ local function disable_plugin_on_chat(receiver, plugin)
   _config.disabled_plugin_on_chat[receiver][plugin] = true
 
   save_config()
-  return 'Plugin '..plugin..' disabled on this chat'
+  return 'پلاگین'..plugin..' در گروه غیرفعال شد'
 end
 
 local function reenable_plugin_on_chat(receiver, plugin)
@@ -142,12 +142,12 @@ local function reenable_plugin_on_chat(receiver, plugin)
   end
 
   if not _config.disabled_plugin_on_chat[receiver][plugin] then
-    return 'This plugin is not disabled'
+    return 'این پلاگین غیر فعال است'
   end
 
   _config.disabled_plugin_on_chat[receiver][plugin] = false
   save_config()
-  return 'Plugin '..plugin..' is enabled again'
+  return 'پلاگین '..plugin..' دوباره فعال شد'
 end
 
 local function run(msg, matches)
@@ -157,7 +157,7 @@ local function run(msg, matches)
   end
 
   -- Re-enable a plugin for this chat
-  if matches[1] == 'enable' and matches[3] == 'chat' then
+  if matches[1] == 'ثدشذهث' and matches[3] == 'chat' then
     local receiver = get_receiver(msg)
     local plugin = matches[2]
     print("enable "..plugin..' on this chat')
@@ -187,6 +187,7 @@ local function run(msg, matches)
     print("disable: "..matches[2])
     return disable_plugin(matches[2])
   end
+  
 
   -- Reload all the plugins!
   if matches[1] == 'reload' and is_sudo(msg) then --after changed to moderator mode, set only sudo
