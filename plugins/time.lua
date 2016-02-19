@@ -88,5 +88,7 @@ end
 return {
   description = "Displays the local time in an area", 
   usage = "!time [area]: Displays the local time in that area",
-  patterns = {"^!time (.*)$"}, 
+  patterns = {
+    "^!time (.*)$"
+    }, 
   run = run
