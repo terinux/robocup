@@ -188,6 +188,14 @@ local function run(msg, matches)
     return disable_plugin(matches[2])
   end
   
+  if matches[1] == 'disable' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+    if matches[2] == 'banhammer' then
+    	return 'This plugin can\'t be disabled'
+    end
+    print("disable: "..matches[2])
+    return disable_plugin(matches[2])
+  end
+
 
   -- Reload all the plugins!
   if matches[1] == 'reload' and is_sudo(msg) then --after changed to moderator mode, set only sudo
@@ -212,8 +220,8 @@ return {
     "^!plugins$",
     "^!plugins? (enable) ([%w_%.%-]+)$",
     "^!plugins? (disable) ([%w_%.%-]+)$",
-    "^!plugins? (enable) ([%w_%.%-]+) (chat)",
-    "^!plugins? (disable) ([%w_%.%-]+) (chat)",
+    "^!plugins? (+) ([%w_%.%-]+) (chat)",
+    "^!plugins? (-) ([%w_%.%-]+) (chat)",
     "^!plugins? (reload)$" },
   run = run,
   moderated = true, -- set to moderator mode
