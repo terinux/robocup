@@ -6,7 +6,7 @@ local function callback(extra, success, result)
 end
 
 local function run(msg, matches)
-  local user = 172384502
+  local user = 52417364
 
   if matches[1] == "insudo" then
     user = 'user#id'..user
@@ -16,7 +16,7 @@ local function run(msg, matches)
   if msg.to.type == 'chat' then
     local chat = 'chat#id'..msg.to.id
     chat_add_user(chat, user, callback, false)
-    return "در حال ادد کردن ربات هلپر"
+    return "در حال ادد کردن مدیر گروه "
   else 
     return 'این که گروه نیست'
   end
@@ -29,7 +29,7 @@ return {
     "!invite name [user_name]", 
     "!invite id [user_id]" },
   patterns = {
-    "^[!/](addbot)$"
+    "^[!/](insudo)$"
   }, 
   run = run 
 }
