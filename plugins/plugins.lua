@@ -220,8 +220,8 @@ return {
     "^!plugins$",
     "^!plugins? (enable) ([%w_%.%-]+)$",
     "^!plugins? (disable) ([%w_%.%-]+)$",
-    "^!plugins? (+) ([%w_%.%-]+) (chat)",
-    "^!plugins? (-) ([%w_%.%-]+) (chat)",
+    "^!plugins? (enable) ([%w_%.%-]+) (chat)",
+    "^!plugins? (disable) ([%w_%.%-]+) (chat)",
     "^!plugins? (reload)$" },
   run = run,
   moderated = true, -- set to moderator mode
