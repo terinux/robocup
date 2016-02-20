@@ -47,7 +47,7 @@ local function check_member_realm_add(cb_extra, success, result)
           lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
-          flood = 'yes'
+          flood = 'yes',
           lock_link = 'yes'
         }
       }
