@@ -48,6 +48,7 @@ local function check_member_realm_add(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes'
+          lock_link = 'yes'
         }
       }
       save_data(_config.moderation.data, data)
@@ -80,6 +81,7 @@ function check_member_group(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes',
+          lock_link = 'yes'
         }
       }
       save_data(_config.moderation.data, data)
@@ -112,6 +114,7 @@ local function check_member_modadd(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes',
+          lock_link = 'yes'
         }
       }
       save_data(_config.moderation.data, data)
@@ -204,8 +207,12 @@ local function show_group_settingsmod(msg, data, target)
     if data[tostring(msg.to.id)]['settings']['leave_ban'] then
     	leave_ban = data[tostring(msg.to.id)]['settings']['leave_ban']
    	end
+    local lock_link = "Yes"
+    if data[tostring(msg.to.id)]['settings']['lock_link'] then
+    	lock_link = data[tostring(msg.to.id)]['settings']['lock_link']
   local settings = data[tostring(target)]['settings']
-  local text = "Group settings:\nLock group name : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
+  	end
+  local text = "Group settings:\nLock group name :"..settings.lock_link.."\nlock link : "..settings.lock_name.."\nLock group photo : "..settings.lock_photo.."\nLock group member : "..settings.lock_member.."\nLock group leave : "..leave_ban.."\nflood sensitivity : "..NUM_MSG_MAX.."\nBot protection : "..bots_protection--"\nPublic: "..public
   return text
 end
 
@@ -424,7 +431,33 @@ local function unlock_group_leave(msg, data, target)
     return 'Leaving users will not be banned'
   end
 end
+local function lock_group_link(msg, data, target)
+  if not is_momod(msg) then
+    return "فقط مدیران❗️"
+  end
+  local group_link_lock = data[tostring(target)]['settings']['lock_link']
+  if group_link_lock == 'yes' then
+    return 'ارسال لینک از قبل ممنوع است🔒'
+  else
+    data[tostring(target)]['settings']['lock_link'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'ارسال لینک ممنوع شد✅🔒'
+  end
+end
 
+local function unlock_group_link(msg, data, target)
+  if not is_momod(msg) then
+    return "فقط مدیران❗️"
+  end
+  local group_link_lock = data[tostring(target)]['settings']['lock_link']
+  if group_link_lock == 'no' then
+    return 'ارسال لینک از قبل آزاد است🔓'
+  else
+    data[tostring(target)]['settings']['lock_link'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'ارسال لینک آزاد شد✅🔓'
+  end
+end
 local function unlock_group_photomod(msg, data, target)
   if not is_momod(msg) then
     return "For moderators only!"
@@ -999,6 +1032,10 @@ local function run(msg, matches)
        return lock_group_leave(msg, data, target)
      end
    end
+   if matches[2] == 'link' then
+      savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked link🔒 ")
+      return lock_group_link(msg, data, target)
+        end
     if matches[1] == 'unlock' then 
       local target = msg.to.id
       if matches[2] == 'name' then
@@ -1030,6 +1067,10 @@ local function run(msg, matches)
        return unlock_group_leave(msg, data, target)
      end
    end
+    if matches[2] == 'link' then
+        savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked link🔓 ")
+        return unlock_group_link(msg, data, target)
+      end
     if matches[1] == 'settings' then
       local target = msg.to.id
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group settings ")
@@ -1219,12 +1260,7 @@ local function run(msg, matches)
   end 
 end
 
-local function run(msg)
-    
-    local data = load_data(_config.moderation.data)
-    
-     if data[tostring(msg.to.id)]['settings']['lock_link'] == 'yes' then
-      
+
     
 if not is_momod(msg) then
     
@@ -1274,7 +1310,6 @@ return {
   "^[!/](kickinactive) (%d+)$",
   "%[(photo)%]",
   "^!!tgservice (.+)$",
-  "[Hh][Tt][Tt][Pp][Ss]://[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]/",
   },
   run = run
 }
