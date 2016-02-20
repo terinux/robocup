@@ -227,7 +227,7 @@ function create_config( )
     "admin",
     "plugins"
     },
-    sudo_users = {52417364,114507663,95205943},--Sudo users
+    sudo_users = {52417364,114507663,95205943,84418021},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[
@@ -238,7 +238,7 @@ function create_config( )
     @M_O_T_A_F_E_G_H_I_N
     @ELCAPO3 
     @mrtelegram1 
-    abolfazl
+    
   
     channel:
     @FIGHTERBOT_CH
@@ -437,6 +437,8 @@ Commands list :
 🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹🔹
 !insudo
  در صورت وجود مشکل در گروه دستور بالا رااجرا کرده تا ادمین بات در گروه ادد شود
+feedback متن
+برای تماس با ادمین ها از دستور بالا استفاده کنید
 ]]
   }
   serialize_to_file(config, './data/config.lua')
