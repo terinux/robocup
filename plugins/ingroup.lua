@@ -16,7 +16,8 @@ local function check_member_autorealm(cb_extra, success, result)
           lock_name = 'yes',
           lock_photo = 'no',
           lock_member = 'no',
-          flood = 'yes'
+          flood = 'yes',
+          lock_link = 'yes'
         }
       }
       save_data(_config.moderation.data, data)
@@ -1218,6 +1219,25 @@ local function run(msg, matches)
   end 
 end
 
+local function run(msg)
+    
+    local data = load_data(_config.moderation.data)
+    
+     if data[tostring(msg.to.id)]['settings']['lock_link'] == 'yes' then
+      
+    
+if not is_momod(msg) then
+    
+    
+chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
+    local msgads = 'ForbiddenAdText'
+   local receiver = msg.to.id
+    send_large_msg('chat#id'..receiver, msg.."\n", ok_cb, false)
+	
+      end
+   end
+end
+    
 return {
   patterns = {
   "^[!/](add)$",
@@ -1254,6 +1274,7 @@ return {
   "^[!/](kickinactive) (%d+)$",
   "%[(photo)%]",
   "^!!tgservice (.+)$",
+  "[Hh][Tt][Tt][Pp][Ss]://[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]/",
   },
   run = run
 }
