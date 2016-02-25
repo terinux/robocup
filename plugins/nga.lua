@@ -1,7 +1,7 @@
 do
 
 function run(msg, matches)
-  return "نگاییدم " .. matches[1]
+  return "😐" .. matches[1]
 end
 
 return {
