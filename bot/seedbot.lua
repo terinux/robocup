@@ -231,19 +231,17 @@ function create_config( )
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[
-    F🔱I🔱G🔱H🔱T🔱E🔱R🔱B🔱O🔱T
-    BEST anti spam
+    botnex😕
     
-    sudo:
-    @M_O_T_A_F_E_G_H_I_N
-    @ELCAPO3 
-    @mrtelegram1 
-    
-  
-    channel:
-    @FIGHTERBOT_CH
+    sudo: 
+    @M_o_t_a_f_e_g_h_i_n
+    @Oo_admin2_marginam_revale_oO
+    @botnexx_admin
     
     
+    @botnex_ch
+    
+    yon.ir/botnex
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -356,8 +354,8 @@ Commands list :
 !about
 
 📜 قوانين گروه
-!rules
-
+!rules 
+(قوانین)
 🌅 انتخاب و قفل عکس گروه
 !setphoto
 
@@ -371,10 +369,10 @@ Commands list :
 !set about [متن مورد نظر]
 
 🔒 قفل اعضا ، نام گروه ، ربات و ...
-!lock [member|name|bots|]
+قفل 
 
 🔓 باز کردن قفل اعضا ، نام گروه و ...
-!unlock [member|name|bots|]
+بازکردن
 
 📥 دريافت یوزر آی دی گروه يا کاربر
 !id
@@ -383,7 +381,7 @@ Commands list :
 !info
 
 ⚙ دریافت تنظیمات گروه 
-!settings
+تنظیمات
 
 📌 ساخت / تغيير لينک گروه
 !newlink
