@@ -235,7 +235,7 @@ local lock_sticker = "no"
         lock_sticker = data[tostring(msg.to.id)]['settings']['sticker']
         end
          local settings = data[tostring(target)]['settings']
-  local text = "تنظیمات گروه :\n💡قفل اسم گروه : "..settings.lock_name.."\n💡قفل عکس گروه : "..settings.lock_photo.."\n💡قفل تگ کردن در گروه : "..lock_tag.."\n💡قفل ورود اعضا : "..settings.lock_member.."\n💡قفل انگلیسی .. : "..lock_eng.."\n 💡محروم ترک کنندگان : "..lock_leave.."\n💡قفل فحش دادن : "..lock_badw.."\n💡قفل تبلیغات در گروه : "..lock_link.."\n💡قفل استیکر در گروه : "..lock_sticker.."\n💡حساسیت به اسپم : "..NUM_MSG_MAX.."\n💡حفاظت در برابر ربات ها : "..bots_protection--"\nPublic: "..public
+ local text = "تنظیمات گروه ⚙⚙🇮🇷🇮🇷:\n🚀 حفظ اسم گروه   : "..settings.lock_name.."\n🚀 حفط عکس گروه : "..settings.lock_photo.."\n #قفل کردن تگ🚀 : "..lock_tag.."\n🚀قفل اعضا : "..settings.lock_member.."\n🚀قفل انگلیسی .. : "..lock_eng.."\n 🚀قفل کردن خروج : "..lock_leave.."\n🚀 قفل فحش دادن : "..lock_badw.."\n🚀قفل تبلغ در گروه : "..lock_link.."\n🚀 قفل استیکر در گروه : "..lock_sticker.."\n🚀حساسیت به اسپم : "..NUM_MSG_MAX.."\n🚀حفاظت در برابر ربات ها : "..bots_protection--"\nPublic: "..public
   return text
 end
 
