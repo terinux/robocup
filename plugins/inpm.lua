@@ -42,19 +42,19 @@ local function run(msg, matches)
 	 local data = load_data(_config.moderation.data)
     if matches[1] == 'join' and data[tostring(matches[2])] then
         if is_banned(msg.from.id, matches[2]) then
-	    return 'You are banned.'
+	    return 'شما بن شدید'
 	 end
       if is_gbanned(msg.from.id) then
-            return 'You are globally banned.'
+            return 'شما بن گلوبال شده اید'
       end
       if data[tostring(matches[2])]['settings']['lock_member'] == 'yes' and not is_owner2(msg.from.id, matches[2]) then
-        return 'Group is private.'
+        return 'گروه بسته.'
       end
           local chat_id = "chat#id"..matches[2]
           local user_id = "user#id"..msg.from.id
    	  chat_add_user(chat_id, user_id, ok_cb, false)   
 	  local group_name = data[tostring(matches[2])]['settings']['set_name']	
-	  return "Added you to chat:\n\n👥"..group_name.." (ID:"..matches[2]..")"
+	  return "شما وارد گروه شدید:\n\n👥"..group_name.." (ID:"..matches[2]..")"
         elseif matches[1] == 'join' and not data[tostring(matches[2])] then
 		
          	return "Chat not found."
