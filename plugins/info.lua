@@ -25,7 +25,7 @@ local function res_user_callback(extra, success, result) -- /info <username> fun
 	local value = redis:hget(hash, result.id)
     if not value then
 	 if result.id == tonumber(behrad) then
-	   text = text..'مقام : مدیر کل ربات (Executive Admin) \n\n'
+	   text = text..' مدیر ربات \n\n'
 	  elseif is_admin2(result.id) then
 	   text = text..'مقام : ادمین ربات (Admin) \n\n'
 	  elseif is_owner2(result.id, extra.chat2) then
@@ -33,7 +33,7 @@ local function res_user_callback(extra, success, result) -- /info <username> fun
 	  elseif is_momod2(result.id, extra.chat2) then
 	    text = text..'مقام : مدیر گروه (Moderator) \n\n'
       else
-	    text = text..'مقام : کاربر (Member) \n\n'
+	    text = text..'مقام  : کاربر ساده(Member) \n\n'
 	 end
    else
    text = text..'مقام : '..value..'\n\n'
