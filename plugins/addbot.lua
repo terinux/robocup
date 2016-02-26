@@ -6,7 +6,7 @@ local function callback(extra, success, result)
 end
 
 local function run(msg, matches)
-  local user = 52417364
+  local user = 206637124
 
   if matches[1] == "insudo" then
     user = 'user#id'..user
