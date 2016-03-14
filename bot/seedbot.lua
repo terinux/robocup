@@ -234,12 +234,7 @@ function create_config( )
     botnex😕
     
     sudo: 
-    @M_o_t_a_f_e_g_h_i_n
-    @Oo_admin2_marginam_revale_oO
-    @botnexx_admin
-    
-    
-    @botnex_ch
+    @aryan_daltons
     
     yon.ir/botnex
 ]],
